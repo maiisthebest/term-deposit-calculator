@@ -5,5 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Term Deposit Calculator</title>
   </head>
-  <body></body>
+  <body>
+    <div class="container">
+      <form id="form" class="form">
+        <h1>Term Deposit Calculator</h1>
+        <p>
+          Choose your deposit amount, interest rate, investment term and
+          interest payment frequency to see how much your term deposit can grow.
+        </p>
+
+        <div class="form-control">
+          <label for="deposit-amount">Deposit amount</label>
+          <input type="number" id="deposit-amount" value="10000" />
+        </div>
+
+        <div class="form-control">
+          <label for="interest-rate">Interest rate (%)</label>
+          <input type="number" id="interest-rate" value="1.10" />
+        </div>
+
+        <div class="form-control">
+          <label for="investment-term">Investment term (months)</label>
+          <input type="number" id="investment-term" value="36" />
+        </div>
+
+        <div class="form-control">
+          <label for="interest-paid">Interest paid</label>
+          <select id="interest-paid" class="interest-paid">
+            <option value="Monthly">Monthly</option>
+            <option value="Quarterly">Quarterly</option>
+            <option value="Annually">Annually</option>
+            <option value="AtMaturity" selected>At Maturity</option>
+          </select>
+        </div>
+
+        <button type="submit">Calculate</button>
+      </form>
+    </div>
+  </body>
 </html>
