@@ -22,6 +22,7 @@ If you don't use Visual Studio Code or have issues opening the file, you can che
 
 This project was created using test-driven development because I truly care about quality 🤩
 
+1. Make sure you have `yarn` install. Follow these [instructions](https://classic.yarnpkg.com/en/docs/install#mac-stable) if you don't have it.
 1. `yarn install` in the root directory to install all dependencies.
 1. `yarn test` to run all the unit tests available.
 
