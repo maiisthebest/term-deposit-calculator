@@ -1,4 +1,4 @@
-import { calculateTermDeposit } from "./script";
+import { calculateTermDeposit } from "./calculate";
 
 describe("calculateTermDeposit()", () => {
   it.each`

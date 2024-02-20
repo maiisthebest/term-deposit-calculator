@@ -1,42 +1,22 @@
-const compoundedTermObj = {
-  Monthly: 12,
-  Quarterly: 4,
-  Annually: 1,
-  AtMaturity: 0,
-};
+import { calculateTermDeposit } from "./src/calculate.js";
 
-export function calculateTermDeposit(
-  deposit,
-  interestRatePercent,
-  termInMonths,
-  interestPaidFrequency
-) {
-  deposit = Number(deposit);
-  interestRatePercent = Number(interestRatePercent);
-  termInMonths = Number(termInMonths);
+const depositEl = document.getElementById("deposit-amount");
+const interestRatePercentEl = document.getElementById("interest-rate");
+const termInMonthsEl = document.getElementById("investment-term");
+const interestPaidFrequencyEl = document.getElementById("interest-paid");
 
-  if (Number.isNaN(deposit)) return "Deposit amount is not a valid number";
-  if (Number.isNaN(interestRatePercent))
-    return "Interest rate is not a valid number";
-  if (Number.isNaN(termInMonths))
-    return "Investment term (months) is not a valid number";
+const calculateBtn = document.getElementById("calculate");
+const balanceEl = document.getElementById("balance");
 
-  if (compoundedTermObj[interestPaidFrequency] === undefined)
-    return "Interest paid frequency is not a valid option";
+calculateBtn.addEventListener("click", function (e) {
+  e.preventDefault();
 
-  const interestRateDecimal = interestRatePercent / 100;
-  const termInYears = termInMonths / 12;
-  const compoundedTerm = compoundedTermObj[interestPaidFrequency];
+  const balance = calculateTermDeposit(
+    depositEl.value,
+    interestRatePercentEl.value,
+    termInMonthsEl.value,
+    interestPaidFrequencyEl.value
+  );
 
-  let balance;
-  if (compoundedTerm > 0)
-    balance =
-      deposit *
-      Math.pow(
-        1 + interestRateDecimal / compoundedTerm,
-        termInYears * compoundedTerm
-      );
-  else balance = deposit + deposit * interestRateDecimal * termInYears;
-
-  return Math.round(balance);
-}
+  balanceEl.innerText = balance;
+});
