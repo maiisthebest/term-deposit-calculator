@@ -1,4 +1,4 @@
-const compoundedTermObj = {
+const compoundedTerms = {
   Monthly: 12,
   Quarterly: 4,
   Annually: 1,
@@ -21,12 +21,12 @@ export function calculateTermDeposit(
   if (Number.isNaN(termInMonths))
     return "Investment term (months) is not a valid number";
 
-  if (compoundedTermObj[interestPaidFrequency] === undefined)
+  if (compoundedTerms[interestPaidFrequency] === undefined)
     return "Interest paid frequency is not a valid option";
 
   const interestRateDecimal = interestRatePercent / 100;
   const termInYears = termInMonths / 12;
-  const compoundedTerm = compoundedTermObj[interestPaidFrequency];
+  const compoundedTerm = compoundedTerms[interestPaidFrequency];
 
   let balance;
   if (compoundedTerm > 0)

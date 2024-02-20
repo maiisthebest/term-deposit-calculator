@@ -81,7 +81,7 @@ describe("calculateTermDeposit()", () => {
     const deposit = 15000;
     const interestRatePercent = 3.4;
     const termInMonths = 20;
-    const interestPaidFrequency = "Fortnightly";
+    const interestPaidFrequency = "Every day";
 
     expect(
       calculateTermDeposit(
