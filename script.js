@@ -8,7 +8,7 @@ const interestPaidFrequencyEl = document.getElementById("interest-paid");
 const calculateBtn = document.getElementById("calculate");
 const balanceEl = document.getElementById("balance");
 
-calculateBtn.addEventListener("click", function (e) {
+form.addEventListener("submit", function (e) {
   e.preventDefault();
 
   const balance = calculateTermDeposit(

@@ -40,3 +40,25 @@ export function calculateTermDeposit(
 
   return Math.round(balance);
 }
+
+export const calculateBalancePerMonth = (
+  months,
+  interestRate,
+  currentBalance
+) => {
+  const monthlyInterestRateDecimal = interestRate / 12 / 100;
+
+  return [...Array(months).keys()]
+    .map((month) => month + 1)
+    .map((month) => {
+      const interestEarned =
+        Math.ceil(currentBalance * monthlyInterestRateDecimal * 100 * month) /
+        100;
+
+      return {
+        month,
+        interestEarned,
+        newBalance: currentBalance + interestEarned,
+      };
+    });
+};
